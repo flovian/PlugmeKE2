@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="custom.css">
+    <title>PlugmeKE</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo_holder">
+                <a href="#">
+                    <img class="logo" src="resources/logo.png" alt="PlugmeKE">
+                </a>
+            </div>
+            <ul class="links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="people.html">People</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="join.html">Join now</a></li>
+            </ul>
+            <a href="index.html#signup" class="action_btn">Signup/In</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <li><a href="index.html">About</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="join.html">Join now</a></li>
+            <li><a href="index.html#signup" class="action_btn">Signup/In</a></li>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="intro">
+                <img class="intro_img" src="resources/funny-girl.jpg" alt="Shopping">
+            </div>
+            <h1>Searching for quality products?</h1>
+            <p>This is your One-Stop Solution for Finding Quality Products</p>
+
+        </section>
+        <div id="signup" class="form_box">
+            <h1 id="title">Sign Up</h1>
+            <form id="signupForm" method="POST">
+                <div class="input_group">
+                    <div class="input_field" id="nameField">
+                        <i class="fa solid fa-user"></i>
+                        <input type="text" id="nameInput" name="name" placeholder="Name">
+                    </div>
+                    <div class="input_field">
+                        <i class="fa solid fa-envelope"></i>
+                        <input type="email" id="emailInput" name="email" placeholder="Email">
+                    </div>
+                    <div class="input_field">
+                        <i class="fa solid fa-lock"></i>
+                        <input type="password" id="passwordInput" name="password" placeholder="Password">
+                    </div>
+                    <p>Lost password <a href="#">Click here</a></p>
+                </div>
+                <div class="btn_field">
+                    <button type="submit" id="signupBtn">Sign Up</button>
+                    <button type="submit" id="signinBtn" class="disable">Sign In</button>
+                </div>
+            </form>
+            
+        </div>
+        <div class="row_body">
+            <div class="row">
+                <div class="left">
+                    <img src="resources/thinking.jpg" alt="A man thinking">
+                </div>
+                <div class="right">
+                    <div class="content">
+                        <p>Searching for quality products can be a time-consuming and frustrating experience,
+                            especially for people who are new to an area. With so many different shops and sellers
+                            to choose from, it can be difficult to know where to start <br>PlugMe KE solves this problem
+                            by providing a central platform where users can find reliable plugs for different
+                            products</br></p>
+                    </div>c;l
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div> -->
+        <ul class="social_icons">
+            <li><a href=""><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li><a href=""><i class="fa-brands fa-twitter"></i></a>
+            </li>
+            <li><a href=""><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li><a href=""><i class="fa-brands fa-linkedin"></i></a>
+            </li>
+        </ul>
+        <ul class="menu">
+            <li><a href="index.html">About</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="join.html">Join now</a></li>
+        </ul>
+        <p>@2023 Website | All Rights Reseved</p>
+    </footer>
+
+    <script>
+        
+            const toggleBtn = document.querySelector('.toggle_btn')
+            const toggleBtnIcon = document.querySelector('.toggle_btn i')
+            const dropDownMenu = document.querySelector('.dropdown_menu')
+
+            toggleBtn.onclick = function () {
+                dropDownMenu.classList.toggle('open')
+                const isopen = dropDownMenu.classList.contains('open')
+                toggleBtnIcon.classList = isopen
+                    ? 'fa-solid fa-bars'
+                    : 'fa-solid fa-bars'
+            }
+            let signupForm = document.getElementById("signupForm");
+let signupBtn = document.getElementById("signupBtn");
+let signinBtn = document.getElementById("signinBtn");
+let nameField = document.getElementById("nameField");
+let title = document.getElementById("title");
+
+signinBtn.onclick = () => {
+  nameField.style.maxHeight = "0";
+  title.innerHTML = "Sign In";
+  signupBtn.classList.add("disable");
+  signinBtn.classList.remove("disable");
+};
+
+signupBtn.onclick = () => {
+  nameField.style.maxHeight = "60px";
+  title.innerHTML = "Sign Up";
+  signupBtn.classList.remove("disable");
+  signinBtn.classList.add("disable");
+};
+
+signupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let name = document.getElementById("nameInput").value;
+  let email = document.getElementById("emailInput").value;
+  let password = document.getElementById("passwordInput").value;
+  let url = "/api/users";
+  let method = "POST";
+  let body = JSON.stringify({ name, email, password });
+
+  if (title.innerHTML === "Sign In") {
+    // If user is signing in, update URL and method
+    url = "/api/auth";
+    method = "PUT";
+    body = JSON.stringify({ email, password });
+  }
+
+  fetch(url, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: body,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Handle successful response from API
+      console.log(data);
+      alert(`User ${title.innerHTML.toLowerCase()} successful!`);
+    })
+    .catch((error) => {
+      // Handle error from API
+      console.error("Error:", error);
+      alert(`Error ${title.innerHTML.toLowerCase()} user: ${error.message}`);
+    });
+});
+ 
+                
+    </script>
+</body>
+
+</html>
